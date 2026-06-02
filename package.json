@@ -1,0 +1,22 @@
+{
+  "name": "pi-permission",
+  "version": "0.1.0",
+  "description": "Pi extension: interactive permission gating for bash and edit/write tools",
+  "keywords": ["pi-package"],
+  "main": "dist/extensions/permission/index.js",
+  "files": ["extensions", "dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "pi": {
+    "extensions": ["./extensions"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-ai": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
+  "license": "MIT"
+}
