@@ -113,7 +113,6 @@ export default function (pi: ExtensionAPI) {
             projectFilesAllowed
               ? "Project files are now allowed for editing."
               : "Project files are now disallowed for editing.",
-            "success",
           );
         } else if (action === "Add new file pattern") {
           const pattern = await ctx.ui.input(
@@ -127,7 +126,7 @@ export default function (pi: ExtensionAPI) {
 
           sessionAllowedFilePatterns.push(pattern);
           persistAllowedFile(pattern);
-          ctx.ui.notify(`Added allowed file pattern:\n${pattern}`, "success");
+          ctx.ui.notify(`Added allowed file pattern:\n${pattern}`);
         } else if (action === "View/remove pattern") {
           let filePatterns = sessionAllowedFilePatterns
             .map((pattern, idx) => ({
@@ -160,7 +159,6 @@ export default function (pi: ExtensionAPI) {
               persistRemovedFile(selectedFilePattern.index);
               ctx.ui.notify(
                 `Removed allowed file pattern:\n${selectedFilePattern.pattern}`,
-                "success",
               );
               filePatterns = sessionAllowedFilePatterns
                 .map((pattern, idx) => ({

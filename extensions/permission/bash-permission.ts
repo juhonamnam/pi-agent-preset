@@ -114,7 +114,7 @@ export default function (pi: ExtensionAPI) {
 
           sessionAllowedBashCommands.push(new RegExp(regex));
           persistAllowedCommand(regex);
-          ctx.ui.notify(`Added allowed bash command:\n${regex}`, "success");
+          ctx.ui.notify(`Added allowed bash command:\n${regex}`);
         } else if (action === "View/remove allowed commands") {
           let commands = sessionAllowedBashCommands
             .map((regex, idx) => ({
