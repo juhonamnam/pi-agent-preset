@@ -1,10 +1,7 @@
-import type {
-  ExtensionAPI,
-  ExtensionContext,
-} from "@earendil-works/pi-coding-agent";
+import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
 export default function (pi: ExtensionAPI) {
-  pi.on("before_agent_start", async () => {
+  pi.on("session_start", async () => {
     try {
       const current = pi.getActiveTools() ?? [];
       const missing = ["find", "grep", "ls"].filter(
