@@ -31,13 +31,6 @@ function commandToRegex(str: string) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
 }
 
-const DEFAULT_ALLOWED_BASH_COMMANDS = [
-  /^ls(\s|$)/,
-  /^pwd(\s|$)/,
-  /^find(\s|$)/,
-  /^rg(\s|$)/,
-];
-
 export default function (pi: ExtensionAPI) {
   let sessionAllowedBashCommands: RegExp[] = [];
 
@@ -208,12 +201,7 @@ export default function (pi: ExtensionAPI) {
     }
 
     if (
-      sessionAllowedBashCommands.some((regex) =>
-        regex.test(normalizedCommand),
-      ) ||
-      DEFAULT_ALLOWED_BASH_COMMANDS.some((regex) =>
-        regex.test(normalizedCommand),
-      )
+      sessionAllowedBashCommands.some((regex) => regex.test(normalizedCommand))
     ) {
       return;
     }

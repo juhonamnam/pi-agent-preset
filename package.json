@@ -1,22 +1,40 @@
 {
-  "name": "pi-permission",
+  "name": "pi-agent-preset",
   "version": "0.1.0",
-  "description": "Pi extension: interactive permission gating for bash and edit/write tools",
-  "keywords": ["pi-package"],
+  "description": "A preset package for Pi agents, providing a set of extensions and configurations to enhance the capabilities of Pi agents.",
+  "keywords": [
+    "pi-package"
+  ],
   "main": "dist/extensions/permission/index.js",
-  "files": ["extensions", "dist", "README.md"],
+  "files": [
+    "extensions",
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json"
   },
   "pi": {
-    "extensions": ["./extensions"]
+    "extensions": [
+      "./extensions",
+      "node_modules/pi-web-access"
+    ]
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": "*",
-    "@earendil-works/pi-ai": "*"
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
   },
+  "bundledDependencies": [
+    "pi-web-access"
+  ],
   "devDependencies": {
     "typescript": "^5.2.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "pi-web-access": "^0.19.0"
+  },
+  "bundleDependencies": [
+    "pi-web-access"
+  ]
 }
