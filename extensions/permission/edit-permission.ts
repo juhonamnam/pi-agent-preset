@@ -301,7 +301,15 @@ export default function (pi: ExtensionAPI) {
           );
 
           if (!allowEdit) {
-            return { block: true, reason: "Write/Edit blocked by user" };
+            const reason = await ctx.ui.input(
+              "Enter a reason for denying this edit (optional):",
+            );
+            return {
+              block: true,
+              reason: reason
+                ? `Write/Edit blocked by user: ${reason}`
+                : "Write/Edit blocked by user",
+            };
           }
 
           return;
@@ -311,7 +319,15 @@ export default function (pi: ExtensionAPI) {
         persistAllowedFile(newNormalizedPattern);
         return;
       } else {
-        return { block: true, reason: "Write/Edit blocked by user" };
+        const reason = await ctx.ui.input(
+          "Enter a reason for denying this edit (optional):",
+        );
+        return {
+          block: true,
+          reason: reason
+            ? `Write/Edit blocked by user: ${reason}`
+            : "Write/Edit blocked by user",
+        };
       }
     }
   });

@@ -264,13 +264,21 @@ export default function (pi: ExtensionAPI) {
             persistAllowedCommand(newRegexStr);
           }
 
-          const allowEdit = await ctx.ui.confirm(
+          const allowCommand = await ctx.ui.confirm(
             "Do you still want to allow the command?",
             `Bash command:\n\n${command}`,
           );
 
-          if (!allowEdit) {
-            return { block: true, reason: "Write/Edit blocked by user" };
+          if (!allowCommand) {
+            const reason = await ctx.ui.input(
+              "Enter a reason for denying this command (optional):",
+            );
+            return {
+              block: true,
+              reason: reason
+                ? `Bash command blocked by user: ${reason}`
+                : "Bash command blocked by user",
+            };
           }
 
           return;
@@ -280,7 +288,15 @@ export default function (pi: ExtensionAPI) {
         persistAllowedCommand(newRegexStr);
         return;
       } else {
-        return { block: true, reason: "Blocked by user" };
+        const reason = await ctx.ui.input(
+          "Enter a reason for denying this command (optional):",
+        );
+        return {
+          block: true,
+          reason: reason
+            ? `Bash command blocked by user: ${reason}`
+            : "Bash command blocked by user",
+        };
       }
     }
   });
