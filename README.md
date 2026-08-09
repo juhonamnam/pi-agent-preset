@@ -1,13 +1,6 @@
-# pi-permission
+# Pi Agent Presets
 
-Minimal pi package that provides interactive permission gates for dangerous tools:
-
-- `allowed-commands` command to manage allowed bash commands per session
-- `allowed-edits` command to manage allowed file patterns for edit/write operations
-
-Structure
-
-- extensions/permission - TypeScript extension source (already present)
+Pi extension that provides a preset of agents for common tasks.
 
 Usage
 
