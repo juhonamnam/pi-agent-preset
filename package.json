@@ -5,6 +5,7 @@
   "keywords": [
     "pi-package"
   ],
+  "type": "module",
   "main": "dist/extensions/permission/index.js",
   "files": [
     "extensions",
