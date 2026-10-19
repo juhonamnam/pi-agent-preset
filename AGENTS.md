@@ -7,8 +7,9 @@ Brief descriptions
   * Command: available-tools — shows active tools.
 
 - extensions/permission
-  * bash-permission.ts — Manages allowed bash command regexes and intercepts bash calls to prompt or block when not allowed.
-  * edit-permission.ts — Manages allowed file glob patterns (and a project-files toggle) and intercepts write/edit calls to prompt or block when not allowed.
+  * bash-permission.ts — Manages allowed bash command regexes and intercepts bash calls to prompt or block when not allowed. Command: allowed-commands.
+  * edit-permission.ts — Manages allowed file glob patterns (and a project-files toggle) and intercepts write/edit calls to prompt or block when not allowed. Command: allowed-edits.
+  * Command: allow-all — allows all bash commands (adds ".*" regex) and project file edits for the session.
 
 - extensions/ask-user-question
   * ask-user-question.ts — Prompts the user for input when an agent needs to ask a question. Can be used to override the default behavior of asking questions in the terminal.

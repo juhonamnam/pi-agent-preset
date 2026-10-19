@@ -73,6 +73,15 @@ export default function (pi: ExtensionAPI) {
     });
   }
 
+  function allowAll() {
+    if (sessionAllowedBashCommands.some((regex) => regex.source === ".*")) {
+      return;
+    }
+
+    sessionAllowedBashCommands.push(/.*/);
+    persistAllowedCommand(".*");
+  }
+
   pi.on("session_start", async (_event, ctx) => {
     restoreAllowedCommands(ctx);
   });
@@ -300,4 +309,6 @@ export default function (pi: ExtensionAPI) {
       }
     }
   });
+
+  return { allowAll };
 }

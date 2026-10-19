@@ -79,6 +79,15 @@ export default function (pi: ExtensionAPI) {
     );
   }
 
+  function allowAll() {
+    if (projectFilesAllowed) {
+      return;
+    }
+
+    projectFilesAllowed = true;
+    persistProjectFilesAllowed(true);
+  }
+
   pi.on("session_start", async (_event, ctx) => {
     projRoot = ctx.cwd;
     restoreAllowedPaths(ctx);
@@ -331,4 +340,6 @@ export default function (pi: ExtensionAPI) {
       }
     }
   });
+
+  return { allowAll };
 }
