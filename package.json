@@ -19,7 +19,6 @@
     "extensions": [
       "./extensions",
       "node_modules/pi-web-access",
-      "node_modules/pi-mcp-adapter",
       "node_modules/@tintinweb/pi-subagents",
       "node_modules/@aliou/pi-neuralwatt"
     ]
@@ -38,7 +37,6 @@
   "dependencies": {
     "@aliou/pi-neuralwatt": "^0.16.1",
     "@tintinweb/pi-subagents": "^0.19.0",
-    "pi-mcp-adapter": "^2.33.0",
     "pi-web-access": "^0.19.0"
   },
   "bundleDependencies": [
